@@ -24,6 +24,9 @@
             justify-self: center;
             background-color: lightyellow;
         }
+        #hidzero{
+            font-size: 32px;
+        }
     </style>
 </head>
 <body>
@@ -32,8 +35,23 @@
     <div id="res">
         <p class="css" id="result"> </p>
     </div>
+    <br>
+    <input type="button" value="Hide zero" onclick="hideZero()" id="hidzero">
     <script>
         let times = 0;
+        let hidzero = false;
+        let isHide = false;
+        let buttonValue = "Show zero";
+        isHide ? document.getElementById("hidzero").style.backgroundColor = "green":document.getElementById("hidzero").style.backgroundColor = "red";
+
+        function hideZero(){
+            isHide ? document.getElementById("hidzero").style.backgroundColor = "red":document.getElementById("hidzero").style.backgroundColor = "green";
+            document.getElementById("hidzero").value = buttonValue;
+            hidzero = !hidzero;
+            isHide = !isHide;    
+            isHide ? buttonValue = "Hide zero": buttonValue = "Show zero";
+            cmt();
+        }
         function cmt(){
             times++;
             let num = document.getElementById("num").value ? document.getElementById("num").value:0;  
@@ -41,7 +59,7 @@
                 document.getElementById("result").innerHTML = "";
                 times = 0;
             }
-            for(i=0; i<=10; i++){
+            for(hidzero?i=1:i=0; i<=10; i++){
                 document.getElementById("result").innerHTML += "<p id='result'> "+num+" * "+i+" = "+num*i +"</p>";
             }
         }
