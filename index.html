@@ -27,7 +27,7 @@
     </style>
 </head>
 <body>
-    <input type="number" id="num" class="css" oninput="cmt()">
+    <input type="number" id="num" value="0" class="css" oninput="cmt()">
     <br> <br>
     <div id="res">
         <p class="css" id="result"> </p>
@@ -36,7 +36,7 @@
         let times = 0;
         function cmt(){
             times++;
-            let num = document.getElementById("num").value;  
+            let num = document.getElementById("num").value ? document.getElementById("num").value:0;  
             if(times > 0){
                 document.getElementById("result").innerHTML = "";
                 times = 0;
@@ -45,6 +45,7 @@
                 document.getElementById("result").innerHTML += "<p id='result'> "+num+" * "+i+" = "+num*i +"</p>";
             }
         }
+        cmt();
     </script>
 </body>
 </html>
