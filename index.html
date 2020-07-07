@@ -38,28 +38,31 @@
     <br>
     <input type="button" value="Hide zero" onclick="hideZero()" id="hidzero">
     <script>
+        // Variables creation
         let times = 0;
         let hidzero = false;
         let isHide = false;
         let buttonValue = "Show zero";
+        // Default color to hide-show zero buttom
         isHide ? document.getElementById("hidzero").style.backgroundColor = "green":document.getElementById("hidzero").style.backgroundColor = "red";
 
+        // Hide zero function
         function hideZero(){
-            isHide ? document.getElementById("hidzero").style.backgroundColor = "red":document.getElementById("hidzero").style.backgroundColor = "green";
-            document.getElementById("hidzero").value = buttonValue;
-            hidzero = !hidzero;
-            isHide = !isHide;    
-            isHide ? buttonValue = "Hide zero": buttonValue = "Show zero";
-            cmt();
+            isHide ? document.getElementById("hidzero").style.backgroundColor = "red":document.getElementById("hidzero").style.backgroundColor = "green"; // Defining the color for the button
+            document.getElementById("hidzero").value = buttonValue; // Changing the text of the button
+            hidzero = !hidzero; // Changing the hidzero variable to its opposite
+            isHide = !isHide;   // Changing the isHide variable to its opposite
+            isHide ? buttonValue = "Hide zero": buttonValue = "Show zero"; // Attributing the text of button Hide zero, base on isHide value
+            cmt(); // Restarting the math table
         }
         function cmt(){
-            times++;
-            let num = document.getElementById("num").value ? document.getElementById("num").value:0;  
-            if(times > 0){
+            times++; //Maximum times variable is incremented 
+            let num = document.getElementById("num").value ? document.getElementById("num").value:0;  // Num variable recieves the value of the num input number, if its nothing then it's definite with a zero
+            if(times > 0){ // Restart the math table content
                 document.getElementById("result").innerHTML = "";
                 times = 0;
             }
-            for(hidzero?i=1:i=0; i<=10; i++){
+            for(hidzero?i=1:i=0; i<=10; i++){ // Create the math table
                 document.getElementById("result").innerHTML += "<p id='result'> "+num+" * "+i+" = "+num*i +"</p>";
             }
         }
