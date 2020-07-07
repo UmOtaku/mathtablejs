@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        body{
+            font-size: 16pt;
+            text-align: center;
+            margin: auto;
+            position: relative;
+        }
+        
+        #num{
+            border: 1px black solid;
+            border-radius: 12px;
+        }
+
+        #res{
+            width: 480px;
+            margin: auto;
+            border: 1px black solid;
+            border-radius: 25px;
+            align-items: center;
+            justify-self: center;
+            background-color: lightyellow;
+            
+        }
+    </style>
+</head>
+<body>
+    <input type="number" id="num" class="css" oninput="cmt()">
+    <br> <br>
+    <div id="res">
+        <p class="css" id="result"> </p>
+    </div>
+    <script>
+        let times = 0;
+        function cmt(){
+            times++;
+            console.log(times);
+            let num = document.getElementById("num").value ?? 0;    
+            console.log(num);
+            
+            if(times > 0){
+                document.getElementById("result").innerHTML = "";
+                times = 0;
+            }
+            for(i=0; i<=10; i++){
+                document.getElementById("result").innerHTML += "<p id='result'> "+num+" * "+i+" = "+num*i +"</p>";
+                console.log("Execução número: "+i);
+            }
+        }
+        
+    </script>
+</body>
+</html>
