@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Math Table</title>
     <style>
         body{
             font-size: 16pt;
@@ -38,52 +38,6 @@
     <br>
     <input type="button" value="Hide zero" onclick="hideZero()" id="hidzero">
     <input type="button" value="Dark Mode" onclick="darkMode()" id="darkmode">
-    <script>
-        // Variables creation
-        let times = 0;
-        let isHide = false;
-        let isDark = false;
-        let buttonValue = "Show zero";
-        // Default color to hide-show zero buttom
-        isHide ? document.getElementById("hidzero").style.backgroundColor = "green":document.getElementById("hidzero").style.backgroundColor = "red";
-        isDark ? document.getElementById("darkmode").style.backgroundColor = "green" : document.getElementById("darkmode").style.backgroundColor = "red";
-
-        // Hide zero function
-        function hideZero(){
-            isHide ? document.getElementById("hidzero").style.backgroundColor = "red":document.getElementById("hidzero").style.backgroundColor = "green"; // Defining the color for the button
-            isHide = !isHide;   // Changing the isHide variable to its opposite
-            cmt(); // Restarting the math table
-        }
-
-        function darkMode(){
-            isDark = !isDark;
-            if(isDark){
-                document.getElementById("darkmode").style.backgroundColor = "green"
-                document.body.style.backgroundColor = "black"
-                document.body.style.color = "white";
-                document.getElementById("res").style.backgroundColor = "rgba(20, 20, 94, 0.5)";
-
-            }
-            else{   
-                document.getElementById("darkmode").style.backgroundColor = "red";
-                document.body.style.backgroundColor = "white";
-                document.body.style.color = "black";
-                document.getElementById("res").style.backgroundColor = "lightyellow";
-            }
-        }
-
-        function cmt(){
-            times++; //Maximum times variable is incremented 
-            let num = document.getElementById("num").value ? document.getElementById("num").value:0;  // Num variable recieves the value of the num input number, if its nothing then it's definite with a zero
-            if(times > 0){ // Restart the math table content
-                document.getElementById("result").innerHTML = "";
-                times = 0;
-            }
-            for(isHide?i=1:i=0; i<=10; i++){ // Create the math table
-                document.getElementById("result").innerHTML += `<p id='result'> ${num} * ${i} = ${num*i} </p>`;
-            }
-        }
-        cmt();
-    </script>
+    <script src="script.js"> </script>
 </body>
 </html>
